@@ -10,6 +10,13 @@ namespace Testing_Branding.Controllers
     {
         public ActionResult Index()
         {
+            var requestQry = Request.QueryString["BrandLegalName"];
+            if(requestQry == null || requestQry.Length == 0)
+            {
+                requestQry = "Default Testing Legal Name";
+            }
+            ViewBag.BrandName = requestQry;
+
             return View();
         }
 
